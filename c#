@@ -1,0 +1,107 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab._4._1
+{
+    /*Створити клас – Коло. У закритій частині визначити поля:
+• x, 
+• y – координати центру та
+• R – радіус.
+Методи:
+• обчислюють площу,
+• довжину кола,
+• встановлюють поля і
+• повертають їх значення.*/
+
+    class Circle
+    {
+        private int x;
+        private int y;
+        private int r;
+        public int GetX() { return x; }
+        public int GetY() { return y; }
+        public int GetR() { return r; }
+        public bool SetX(int x1)
+        {
+            if (x1 > 0)
+            {
+                x = x1;
+                return true;
+            }
+            else
+            {
+                x = -x1;
+                return false;
+            }
+        }
+        public bool SetY(int y1)
+        {
+            if (y1 > 0)
+            {
+                y = y1;
+                return true;
+
+            }
+            else
+            {
+                y = -y1;
+                return false;
+            }
+        }
+        public bool SetR(int r1)
+        {
+            if (r1 > 0)
+            {
+                r = r1;
+                return true;
+
+            }
+            else
+            {
+                r = -r1;
+                return false;
+            }
+        }
+        public bool Init(int x1, int y1, int r1)
+        {
+           return SetX(x1) && SetY(y1) && SetR(r1);
+        }
+        public void Read()
+        {
+            int x1, y1, r1;
+            do
+            {
+                Console.Write("x: ");
+                x1 = Convert.ToInt32(Console.ReadLine());
+               Console.Write("y: ");
+                y1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("r: ");
+                r1 = Convert.ToInt32(Console.ReadLine());
+
+            } while (!Init(x1, y1, r1));
+
+        }
+        public void Display()
+        {
+                Console.WriteLine("x: " + x);
+                Console.WriteLine("y: " + y);
+                Console.WriteLine("r: " + r);
+        }
+        public double Area()
+        {
+            double area = 3.14 * (GetR() * GetR());
+            return area;
+        }
+        public double L()
+        {
+            double l = 2 * 3.14 * GetR();
+            return l;
+        }
+
+    }
+}
+
+   
